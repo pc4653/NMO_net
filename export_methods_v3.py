@@ -1,8 +1,6 @@
 import os
 import scipy.misc
 import dicom
-import tensorflow as tf
-os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 group = 'NMO'
 
 def category( desc ):
@@ -14,28 +12,6 @@ def category( desc ):
      result = 0;
 
    return result;
-
-#def recognize(label_lines ):
-#   position_lock = 1
-#   orientation_lock = 1
-#   mode_lock = 1
-#   image_data = tf.gfile.FastGFile('temp.jpg', 'rb').read()
-
-#   predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
-    
-      # Sort to show labels of first prediction in order of confidence
-#   top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
-#   for node_id in top_k:
-#      if (node_id in (0, 1)) and position_lock:
-#          position = label_lines[node_id]
-#          position_lock = 0
-#      elif node_id in (2, 3, 4) and orientation_lock:
-#          orientation = label_lines[node_id]
-#          orientation_lock = 0
-#      elif node_id in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14) and mode_lock:
-#          mode = label_lines[node_id]
-#          mode_lock = 0
-#   return position+'#'+orientation+'#'+mode 
 
 
 #def tagfile( name, tags ):
@@ -66,7 +42,7 @@ def read_export(input_str, output_path):
 	   print input_str
 	   desc = 'missing'
 
-   number = str(data.SeriesNumber) + '#' + str(data.InstanceNumber)
+#   number = str(data.SeriesNumber) + '#' + str(data.InstanceNumber)
 	   
 
    try:
@@ -81,7 +57,7 @@ def read_export(input_str, output_path):
        date = 'missing'
 
 
-   #name = group + '%' + desc + '%' + number + '%' + '[' + date + ']' + '%' + ID +'.jpg'
+   name = desc + '%%%' + str(data.InstanceNumber) + '.jpg'
    result = category(desc)
 
    subpath = os.path.join(output_path, ID)
@@ -96,11 +72,12 @@ def read_export(input_str, output_path):
    if not os.path.isdir(subpath):
      os.mkdir(subpath)
 
-   #output_string = os.path.join(subpath,name)
+   output_string = os.path.join(subpath,name)
    if result == 1:
      #tagfile(name, tags)
+    if not os.path.isfile(output_string):
        try:
-         scipy.misc.toimage(data.pixel_array, cmin=0, cmax=255).save('temp.jpg')
+         scipy.misc.toimage(data.pixel_array, cmin=0, cmax=255).save(output_string)
        except ValueError:
          print 'ValueError'
          print input_str
@@ -112,4 +89,4 @@ def read_export(input_str, output_path):
 
 
 
-   return [str(data.InstanceNumber) + '%' + desc,subpath];
+   return;
