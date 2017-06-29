@@ -18,17 +18,22 @@ Note 6/29/17:
 - test on Other_Patient dataset
 - utilize 3D Neural Network to recognize if two MRI sets belong to the same person
 - with multiple body parts, scanning orientation, and scanning mode, maybe consider multi-view 3D CNN?
+- Need to understand what each scanning mode is 
 
 1. label all scanning images according to body parts, scanning orientation, and scanning mode, and put them to corresponding folders;
 2. for each folder, decide if that certain sequence of images have diagnostic evidence on NMO - and if so, which images, at about what part?
 3. divide the images into 2 sets, one has observable NMO, and the other one does not.
 4. create 3D CNN for every body part's every scanning orientation's every scanning mode (or just every body part and scanning orientation, this is about 6 of them), and use the 2 sets to train for binary classification. Use the resulting CNN's activation functions as feature extractor to train another fully connected NN/SVM, which outputs the result. 
 
-Question:
+**Question:**
 
-do we have enough positive data sequences? need to pull the data on this one
-what structure should the 3D CNN be?
-what is the best implementation for the last NN? should we use SVM?
+what is each scanning mode, are all of them significant? 
+
+do we have enough positive data sequences? need to pull the data on this one 
+
+what structure should the 3D CNN be? 
+
+what is the best implementation for the last NN? should we use SVM? 
 
 
 ~~Take stats on the dataset - how many images of each type exactly?~~
