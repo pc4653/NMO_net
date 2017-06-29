@@ -7,7 +7,7 @@ def categorize( input_str):
 	except dicom.errors.InvalidDicomError:
 		print 'InvalidDicomError'
 		print input_str
-		return;
+		return ['N/A','N/A'];
 	
 	try:
 		study_desc = data.StudyDescription
@@ -27,7 +27,7 @@ def categorize( input_str):
 
 tags = open('/home/chengp/Pictures/labels.txt').readlines()
 label_lines = map(str.strip, tags)
-input_dir = '/home/chengp/Pictures/NMO_Patient/'
+input_dir = '/home/chengp/Pictures/Other_Patient/'
 count = {'Head' : 0 , 'Spine' : 0 , 'Ax' : 0 , 'Cor' : 0 , 'Sag' : 0 , 'ce_MRV' : 0, 'Tensor' : 0, 'Diffusion':0, 'ASSET':0, 'MRA':0, 'T1':0, 'T2':0, 'DTI':0, 'PROBE-SI':0, 'DWI':0}
 os.chdir(input_dir)
 path = os.getcwd()

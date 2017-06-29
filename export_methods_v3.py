@@ -1,7 +1,6 @@
 import os
 import scipy.misc
 import dicom
-group = 'NMO'
 
 def category( desc ):
 	if 'head'.lower() in desc.lower():

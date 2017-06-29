@@ -6,11 +6,11 @@ from export_methods_v3 import *
 tags = open('/home/chengp/Pictures/labels.txt').readlines()
 label_lines = map(str.strip, tags)
 
-output_path = '/home/chengp/Pictures/NMO_by_Patient/'
+output_path = '/home/chengp/Pictures/Other_by_Patient/'
 
 #create_dir(output_path)
 
-input_dir = '/home/chengp/Pictures/NMO_Patient/'
+input_dir = '/home/chengp/Pictures/Other_Patient/'
 
 os.chdir(input_dir)
 path = os.getcwd()

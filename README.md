@@ -15,7 +15,17 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 Note 6/29/17:
 - Until data better curated, check out other neural image dataset, and 3D convolutional NN; 
+- test on Other_Patient dataset
+- utilize 3D Neural Network to recognize if two MRI sets belong to the same person
+- with multiple body parts, scanning orientation, and scanning mode, maybe consider multi-view 3D CNN?
 
+
+~~Take stats on the dataset - how many images of each type exactly?~~
+
+check test.txt
+
+
+NOtes:
 dataset candidates:
 
 opensource MRI data:
@@ -27,14 +37,13 @@ https://www.kaggle.com/c/data-science-bowl-2017/data
 ADNI
 http://adni.loni.usc.edu/data-samples/mri/
 
+multi-view
+
+
 3D Neural Network:
+VoxNet
 
 
 
 
-~~Take stats on the dataset - how many images of each type exactly?~~
 
-check test.txt
-
-- test on Other_Patient dataset
-- utilize 3D Neural Network to recognize if two MRI sets belong to the same person
