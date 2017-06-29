@@ -37,7 +37,8 @@ https://www.kaggle.com/c/data-science-bowl-2017/data
 ADNI
 http://adni.loni.usc.edu/data-samples/mri/
 
-multi-view
+multi-view 2D
+https://arxiv.org/pdf/1505.00880.pdf
 
 
 3D Neural Network:
