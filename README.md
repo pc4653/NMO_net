@@ -56,7 +56,8 @@ http://adni.loni.usc.edu/data-samples/mri/
 - multi-view 2D
 https://arxiv.org/pdf/1505.00880.pdf
 
-
+- skull stripping trained 3D CNN
+https://github.com/GUR9000/Deep_MRI_brain_extraction
 
 
 - 3D Neural Network:
