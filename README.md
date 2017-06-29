@@ -29,7 +29,8 @@ https://www.kaggle.com/c/data-science-bowl-2017/data
 
 
 
-~~Take stats on the dataset - how many images of each type exactly? - ~~
+~~Take stats on the dataset - how many images of each type exactly?~~
+
 check test.txt
 
 - test on Other_Patient dataset
