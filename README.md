@@ -37,3 +37,4 @@ http://adni.loni.usc.edu/data-samples/mri/
 check test.txt
 
 - test on Other_Patient dataset
+- utilize 3D Neural Network to recognize if two MRI sets belong to the same person
