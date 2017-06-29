@@ -24,6 +24,9 @@ https://openfmri.org/how-to-extract-data/
 kaggle lung cancer data:
 https://www.kaggle.com/c/data-science-bowl-2017/data
 
+ADNI
+http://adni.loni.usc.edu/data-samples/mri/
+
 3D Neural Network:
 
 
