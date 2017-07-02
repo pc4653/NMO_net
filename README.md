@@ -15,6 +15,7 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 Note 6/29/17:
 - Until data better curated, check out other neural image dataset, and 3D convolutional NN; 
+- Only mode T1, T1 Flair +C, T2, and T2 Flair need to be considered;
 - test on Other_Patient dataset
 - utilize 3D Neural Network to recognize if two MRI sets belong to the same person
 - with multiple body parts, scanning orientation, and scanning mode, maybe consider multi-view 3D CNN?
