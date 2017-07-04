@@ -12,6 +12,8 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 
 **Todo:**
+Note 7/4/17
+- With the new information, change the neural net's input to just distinguish: Head or Spine, T1 or T2, and whether flair, or +C;
 
 Note 6/29/17:
 - Until data better curated, check out other neural image dataset, and 3D convolutional NN; 
