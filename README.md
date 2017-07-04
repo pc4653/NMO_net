@@ -64,7 +64,18 @@ https://github.com/GUR9000/Deep_MRI_brain_extraction
 - 3D Neural Network:
 VoxNet
 
-
-
-
+**Apendix**
+FSE - Fast Spin Echo
+FS - Fat Suppressed
+SE - Spin Echo
+FSPGR - Fast spoiled Gradient Echo, faster scan, less false shadow
+Note, Fat and Water are high signal under T2
+TOP - From Neck to Chest
+LOC - locate, not meaningful
+FL:B T1P - can be considered T1
+WATER - can be considered as FS
+FAT - Fat image, not meaningful
+C stands for Cervical Vertebrae. It consists of 7 bones, from top to bottom, C1, C2, C3, C4, C5, C6 and C7.
+T stands for Thoracic Vertebrae, 12 of them.
+O stands for Oblique - a plane or section not perpendicular to the xyz coordinate system, such as long and short axis views of the heart - ala not Ax Cor or Sag
 
