@@ -12,6 +12,11 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 
 **Todo:**
+Note 7/7/17
+- The newly trained CNN has a size of 39892 images, excluding images with tags: Tensor, ASSET, DTI, 3D, FAT, 2D, MRV, 3-pl, diffusion, Bolus, MRA, PROBE-SI, and DWI. The CNN attempts to categorize: Head and Spine, T1 and T2, +C and FLAIR, Oblique, Cervical, Thoracic, and Lumbar. 
+- result: +C or contrast enhanced is very unreliable, the spine position is very unreliable; some causes may be 1. uneven data distribution as the prior; 2. low image quality, i.e. weird shading on the image, some seems very overexposed, for +C, some images exhibit no meaningful images, partially due to overexposure. 
+- thoughts: with more exclusion, some T1 T2 distinction also becomes unstable, need more and/or better quality data, with more labeling consistency - maybe partially resolved by eliminating bad images as well. 
+
 Note 7/4/17
 - With the new information, change the neural net's input to just distinguish: Head or Spine, T1 or T2, and whether flair, or +C;
 
