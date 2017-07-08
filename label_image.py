@@ -1,3 +1,4 @@
+#this script uses the trained CNN to identify images, according to the tags in label.txt
 import tensorflow as tf
 import sys
 import os
