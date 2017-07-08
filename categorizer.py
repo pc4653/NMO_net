@@ -1,3 +1,5 @@
+# this script pulls all data tags from DICOM files, and organize and count them to according categories
+
 import os
 import dicom
 import operator
