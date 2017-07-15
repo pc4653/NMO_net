@@ -13,6 +13,14 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 **Todo:**
 
+Note 7/13/17
+
+Spine/Neck - T2 (no T2 Flair) where lesion appears to be a long narrow white band inside the spinal cord
+Head - T2 Flair/T2
+Overall T2 gives the best lesion detection; however, T2 Flair may be useful at times becuase it suppresses water signal;
+
+
+
 Note 7/7/17
 
 - contrast enhancement doesn't give images a drastic change, instead just the blood vessels and the lesions become somewhat clearer after constrast agent was injected to the patient;
