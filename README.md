@@ -13,6 +13,9 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 **Todo:**
 
+Note 7/27/17
+Spine Detection: to detect lesion in the spine, first need to find the slice of MRI image (Sagittal) that goes through the spinal cord. Can also use Ax as reinforcement.
+
 Note 7/13/17
 
 Spine/Neck - T2 (no T2 Flair) where lesion appears to be a long narrow white band inside the spinal cord
