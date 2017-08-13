@@ -1,3 +1,4 @@
+#this script uses the trained CNN to identify images, according to the tags in label.txt
 import tensorflow as tf
 import sys
 import os
@@ -40,3 +41,23 @@ with tf.Session() as sess:
 							os.system('cp ' + absolute_path + ' ' + pos_output_dir + str(count)+'.jpg')
 							count += 1
 						
+<<<<<<< HEAD
+=======
+						position_lock = 1
+						orientation_lock = 1
+						mode_lock = 1
+						for node_id in top_k:
+							if (node_id in (0, 1)) and position_lock:
+								position = label_lines[node_id]
+								position_lock = 0 
+							elif node_id in (2, 3, 4) and orientation_lock:
+								orientation = label_lines[node_id]
+								orientation_lock = 0
+							elif node_id in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14) and mode_lock:
+								mode = label_lines[node_id]
+								mode_lock = 0
+						net_result = position+'#'+orientation+'#'+mode + '#'
+						new_name = net_result + filename
+						new_path = os.path.join(path2, new_name)
+						os.rename(absolute_path, new_path)
+>>>>>>> aa8b6bdcfda1892688d71f98d694ec660cb33188
