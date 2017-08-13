@@ -3,6 +3,11 @@ Test on performance of inception v3 transfer learning on dataset
 
 progress:
 
+used about 2600 images of Sagittal spine images to distinguish between showing inside of spinal cord or not showing inside of spinal cord; effort largely successful, further refinement could be had 
+
+
+
+
 used about 100000 images to train for classifications of 1. body position; 2. scanning orientation; 3. scanning mode; using inception v3 net as initial weights; accuracy at about 96 percent.
 
 
@@ -12,6 +17,12 @@ label_image.py: go through all directories, use the trained net to identify if t
 
 
 **Todo:**
+Note 8/12/17
+Spinal detection largely successful, now require a differentiation between NMO and non-NMO patient's spinal cord lesion exhibitation. 
+
+
+
+
 
 Note 7/27/17
 Spine Detection: to detect lesion in the spine, first need to find the slice of MRI image (Sagittal) that goes through the spinal cord. Can also use Ax as reinforcement.
