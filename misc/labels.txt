@@ -1,0 +1,2 @@
+no_spinal_inside
+yes_spinal_inside
