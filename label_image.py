@@ -2,10 +2,11 @@ import tensorflow as tf
 import sys
 import os
 
-input_dir = '/home/chengp/Pictures/NMO_by_Patient/'
-tags = open('/home/chengp/Pictures/labels.txt').readlines()
-label_lines = map(str.strip, tags)
-
+input_dir = '/home/chengp/Pictures/test/'
+pos_output_dir = '/home/chengp/Pictures/test_positive/'
+neg_output_dir = '/home/chengp/Pictures/test_negative/'
+label_lines = [line.rstrip() for line in tf.gfile.GFile("labels.txt")]
+count = 0
 # Unpersists graph from file
 with tf.gfile.FastGFile("/home/chengp/Pictures/scripts/Multi-label-Inception-net/retrained_graph.pb", 'rb') as f:
     graph_def = tf.GraphDef()
@@ -32,21 +33,10 @@ with tf.Session() as sess:
 						predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
 						# Sort to show labels of first prediction in order of confidence
 						top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
+						if top_k[0] == 0:
+							os.system('cp ' + absolute_path + ' ' + neg_output_dir + str(count)+'.jpg')
+							count += 1
+						else: 
+							os.system('cp ' + absolute_path + ' ' + pos_output_dir + str(count)+'.jpg')
+							count += 1
 						
-						position_lock = 1
-						orientation_lock = 1
-						mode_lock = 1
-						for node_id in top_k:
-							if (node_id in (0, 1)) and position_lock:
-								position = label_lines[node_id]
-								position_lock = 0 
-							elif node_id in (2, 3, 4) and orientation_lock:
-								orientation = label_lines[node_id]
-								orientation_lock = 0
-							elif node_id in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14) and mode_lock:
-								mode = label_lines[node_id]
-								mode_lock = 0
-						net_result = position+'#'+orientation+'#'+mode + '#'
-						new_name = net_result + filename
-						new_path = os.path.join(path2, new_name)
-						os.rename(absolute_path, new_path)

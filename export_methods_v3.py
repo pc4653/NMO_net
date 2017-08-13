@@ -2,13 +2,19 @@ import os
 import scipy.misc
 import dicom
 
-def category( desc ):
-	if 'head'.lower() in desc.lower():
-		result = 1;
-	elif 'spine' in desc.lower():
-		result = 1;
-	else:
-		result = 0;
+def category( study_desc, series_desc ):
+	result = 0
+	#if 'head'.lower() in study_desc.lower():
+	#	if 't1'.lower() in series_desc.lower():
+	#		result = 1;
+	#	elif 't2' in series_desc.lower():
+	#		result = 1;
+	if 'spine' in study_desc.lower() or 'neck' in study_desc.lower():
+		if 't1'.lower() in series_desc.lower() and 'sag'.lower() in series_desc.lower():
+			result = 1;
+		elif 't2' in series_desc.lower() and 'sag'.lower() in series_desc.lower():
+			result = 1;
+
 
 	return result;
 
@@ -68,31 +74,31 @@ def read_export(input_str, output_path):
 			date = 'missing'
 
 	study_date = study_desc + '[' + date + ']'
-	name = '%' + str(data.InstanceNumber) + '.jpg'
-	#result = category(desc)
+	name = study_desc + series_desc + ID + '%' + str(data.InstanceNumber) + '.jpg'
+	result = category(study_desc, series_desc)
+	if result == 1:
+		subpath = os.path.join(output_path, ID)
+		if not os.path.isdir(subpath):
+			os.mkdir(subpath)
 
-	subpath = os.path.join(output_path, ID)
-	if not os.path.isdir(subpath):
-		os.mkdir(subpath)
+		subpath = os.path.join(subpath, study_date)
+		if not os.path.isdir(subpath):
+			os.mkdir(subpath)
 
-	subpath = os.path.join(subpath, study_date)
-	if not os.path.isdir(subpath):
-		os.mkdir(subpath)
+		subpath = os.path.join(subpath,str(data.SeriesNumber) + '%%' + series_desc)
+		if not os.path.isdir(subpath):
+			os.mkdir(subpath)
 
-	subpath = os.path.join(subpath,str(data.SeriesNumber) + '%%' + series_desc)
-	if not os.path.isdir(subpath):
-		os.mkdir(subpath)
-
-	output_string = os.path.join(subpath,name)
-	if not os.path.isfile(output_string):
-		try:
-			scipy.misc.toimage(data.pixel_array, cmin=0, cmax=255).save(output_string)
-		except ValueError:
-			print 'ValueError'
-			print input_str
-		except TypeError:
-			print 'TypeError'
-			print input_str 
+		output_string = os.path.join(subpath,name)
+		if not os.path.isfile(output_string):
+			try:
+				scipy.misc.toimage(data.pixel_array, cmin=0, cmax=255).save(output_string)
+			except ValueError:
+				print 'ValueError'
+				print input_str
+			except TypeError:
+				print 'TypeError'
+				print input_str 
    
 
 
